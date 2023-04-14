@@ -40,12 +40,14 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     paddingHorizontal: SIZES.medium,
-  },
+    backgroundColor: COLORS.whiteSmoke,
+    borderRadius: SIZES.xxLarge // You can adjust the value of radius to your preference
+  },  
   searchBtn: {
     width: 50,
     height: "100%",
     backgroundColor: "#8B0002",
-    borderRadius: SIZES.medium,
+    borderRadius: SIZES.xxLarge,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -63,11 +65,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: SIZES.small,
     borderRadius: SIZES.medium,
     borderWidth: 1,
-    borderColor: activeJobType === item ? COLORS.secondary : COLORS.gray2,
+    borderColor: activeJobType === item ? COLORS.primary : COLORS.primary,
   }),
   tabText: (activeJobType, item) => ({
     fontFamily: FONT.medium,
-    color: activeJobType === item ? COLORS.secondary : COLORS.gray2,
+    color: activeJobType === item ? COLORS.primary : COLORS.primary,
   }),
 });
 

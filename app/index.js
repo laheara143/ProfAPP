@@ -19,12 +19,11 @@ const HomeHeader = () => {
         source={require("../assets/Tandem.png")}
         style={{
           width: 150,
-          height: 50,
+          height: 60,
         }}
         resizeMode="contain"
       />
       <Text style={styles.btnContainer}>
-        Family Owned - Breakfast - Friendly
       </Text>
     </View>
   );
@@ -41,7 +40,7 @@ const Home = () => {
       <SafeAreaView style={styles.safeArea}>
         <Stack.Screen
           options={{
-            headerStyle: { backgroundColor: COLORS.lightWhite },
+            headerStyle: { backgroundColor: COLORS.whiteSmoke },
             headerShadowVisible: false,
             headerTitle: () => <HomeHeader />,
           }}
@@ -71,7 +70,7 @@ const styles = StyleSheet.create({
     padding: SIZES.medium,
   },
   btnContainer: {
-    color: COLORS.white,
+    color: COLORS.primary,
     fontSize: SIZES.body2,
     marginTop: SIZES.small,
   },

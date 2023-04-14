@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { COLORS, FONT, SIZES } from "../../../constants";
+import { FONT, SIZES, COLORS } from "../../../constants";
 
 const styles = StyleSheet.create({
   container: {
@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: SIZES.small,
+    marginBottom: SIZES.medium,
   },
   headerTitle: {
     fontSize: SIZES.large,
@@ -20,12 +20,56 @@ const styles = StyleSheet.create({
   headerBtn: {
     fontSize: SIZES.medium,
     fontFamily: FONT.medium,
-    color: COLORS.gray,
+    color: COLORS.gray3,
   },
   cardsContainer: {
-    marginTop: SIZES.medium,
-    gap: SIZES.small,
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexWrap: "wrap",
+  },
+  menuItem: {
+    width: "48%",
+    marginVertical: SIZES.small,
+    backgroundColor: COLORS.white,
+    borderRadius: SIZES.radius,
+    elevation: 1,
+    shadowColor: COLORS.black,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+  },
+  menuItemDetails: {
+    padding: SIZES.small,
+  },
+  menuItemName: {
+    fontFamily: FONT.semiBold,
+    fontSize: SIZES.body3,
+    color: COLORS.darkGray,
+  },
+  menuItemDescription: {
+    fontFamily: FONT.regular,
+    fontSize: SIZES.body4,
+    color: COLORS.gray,
+    marginTop: SIZES.small,
+  },
+  menuItemPrice: {
+    fontFamily: FONT.medium,
+    fontSize: SIZES.body3,
+    color: COLORS.primary,
+    marginTop: SIZES.small,
+  },
+  menuItemImage: {
+    width: "100%",
+    height: 150,
+    borderTopLeftRadius: SIZES.radius,
+    borderTopRightRadius: SIZES.radius,
   },
 });
+  
 
 export default styles;
