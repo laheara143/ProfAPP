@@ -7,10 +7,12 @@ import {
   Text,
   ImageBackground,
   StyleSheet,
+  Dimensions,
 } from "react-native";
+import foodbag from '../assets/foodbag.png'
 import { Stack, useRouter } from "expo-router";
 import { COLORS, icons, images, SIZES } from "../constants";
-import { Nearbyjobs, Popularjobs, Welcome } from "../components";
+import { Nearbyjobs, Popularjobs, ScreenHeaderBtn, Welcome } from "../components";
 
 const HomeHeader = () => {
   return (
@@ -40,8 +42,17 @@ const Home = () => {
       <SafeAreaView style={styles.safeArea}>
         <Stack.Screen
           options={{
-            headerStyle: { backgroundColor: COLORS.whiteSmoke },
+            headerStyle: { 
+              backgroundColor: COLORS.complimentary,
+              backgroundImage: `url(${foodbag})`,
+              height: 100, //Does not work
+              //width: Dimensions.get('window').width,
+              //Color is not covering full image length
+            },
             headerShadowVisible: false,
+            headerRight: () => (
+              <ScreenHeaderBtn iconUrl={icons.menu} dimension="60%"/>
+            ),
             headerTitle: () => <HomeHeader />,
           }}
         />
@@ -59,6 +70,7 @@ const Home = () => {
 
 const styles = StyleSheet.create({
   safeArea: {
+    //make larger
     flex: 1,
   },
   backgroundImage: {

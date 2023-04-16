@@ -1,3 +1,6 @@
+import * as fonts from "expo-font";
+
+
 const COLORS = {
   primary: "#312651",
   secondary: "#444262",
@@ -11,12 +14,17 @@ const COLORS = {
   white: "#F3F4F8",
   lightWhite: "#FAFAFC",
   whiteSmoke: "#F5F5F5",
+
+  tan: "#e5decc",
+
+  complimentary: "#5B6F8C",
 };
 
 const FONT = {
   regular: "DMRegular",
   medium: "DMMedium",
   bold: "DMBold",
+//Add font in here
 };
 
 const SIZES = {

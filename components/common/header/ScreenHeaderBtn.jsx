@@ -2,11 +2,16 @@ import React from 'react'
 import { View, Text, TouchableOpacity, Image } from 'react-native'
 
 import styles from './screenheader.style'
-
+import foodbag from '../../../assets/foodbag.png'
 const ScreenHeaderBtn = ({iconUrl, dimension, handlePress}) => {
   return ( //Duplicate Image Error
     <TouchableOpacity style={styles.btnContainer} onPress={handlePress}>
      
+     <Image
+     source={foodbag}
+     resizeMode='cover'
+     style={styles.btnImg(dimension)}
+     />
     
     </TouchableOpacity>
   )

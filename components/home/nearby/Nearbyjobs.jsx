@@ -49,21 +49,27 @@ const Nearbyjobs = () => {
 
       
       <View style={styles.cardsContainer}>
-        <FlatList
-          data={menuItems}
-          renderItem={({ item }) => (
-            <View style={styles.menuItem}>
-              <View style={styles.menuItemDetails}>
-                <Text style={styles.menuItemName}>{item.name}</Text>
-                <Text style={styles.menuItemDescription}>{item.description}</Text>
-                <Text style={styles.menuItemPrice}>${item.price}</Text>
-              </View>
-              <Image source={item.image} style={styles.menuItemImage} />
-            </View>
-          )}
-          keyExtractor={(item, index) => index.toString()}
-          contentContainerStyle={{ padding: 16 }}
-        />
+      <FlatList
+  data={menuItems}
+  renderItem={({ item }) => (
+    <TouchableOpacity 
+  activeOpacity={0.6}
+  onPress={() => handleCardPress(item)}>
+  <View style={styles.menuItem}>
+    <View style={styles.menuItemDetails}>
+      <Text style={styles.menuItemName}>{item.name}</Text>
+      <Text style={styles.menuItemDescription}>{item.description}</Text>
+      <Text style={styles.menuItemPrice}>${item.price}</Text>
+    </View>
+    <Image source={item.image} style={styles.menuItemImage} />
+  </View>
+</TouchableOpacity>
+
+  )}
+  keyExtractor={(item, index) => index.toString()}
+  contentContainerStyle={{ padding: 16 }}
+/>
+
       </View>
     </View>
   );

@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: 8,
+    flex: 1/2, // set the width of each item to 50% of the container
   },
   itemName: {
     fontSize: 16,
@@ -43,12 +44,14 @@ const BagelMenu = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Bagel Menu</Text>
-      {bagels.map((bagel) => (
-        <View key={bagel.name} style={styles.item}>
-          <Text style={styles.itemName}>{bagel.name}</Text>
-          <Text style={styles.itemPrice}>{bagel.price}</Text>
-        </View>
-      ))}
+      <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+        {bagels.map((bagel) => (
+          <View key={bagel.name} style={styles.item}>
+            <Text style={styles.itemName}>{bagel.name}</Text>
+            <Text style={styles.itemPrice}>{bagel.price}</Text>
+          </View>
+        ))}
+      </View>
     </View>
   );
 };

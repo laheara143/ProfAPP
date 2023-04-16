@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, FlatList, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 import Menu from '../Menu/Menu';
-import { COLORS, icons, SIZES } from '../../../constants';
+import { COLORS, icons, SIZES, FONT } from '../../../constants';
 import styles from './welcome.style';
 
 const foodTypes = ["Bagels", "Breakfast Sandwiches","Beverages", "Lunch Sandwiches", "Salads","Cream Cheese"];
@@ -67,11 +67,12 @@ const Welcome = () => {
 
 const buttonStyles = StyleSheet.create({
   btnContainer: {
-    color: COLORS.black,
+    color: COLORS.primary,
     fontSize: SIZES.medium,
     marginTop: SIZES.small,
     textAlign: 'center',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontFamily: FONT.bold,
     //Change Font Style of FAmily Owned....
   },
 });

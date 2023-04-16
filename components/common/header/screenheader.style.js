@@ -6,14 +6,14 @@ const styles = StyleSheet.create({
   btnContainer: {
     width: 47,
     height: 40,
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.black,
     borderRadius: SIZES.small / 1.25,
     justifyContent: "center",
     alignItems: "center",
   },
   btnImg: (dimension) => ({
-    width: dimension,
-    height: dimension,
+    width: 80,
+    height: 80,
     borderRadius: SIZES.small / 1.25,
   }),
 });
