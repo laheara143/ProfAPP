@@ -3,32 +3,7 @@ import { View, Text, TouchableOpacity, FlatList, ActivityIndicator, Image } from
 import { COLORS, SIZES } from '../../../constants';
 import NearbyJobCard from '../../common/cards/nearby/NearbyJobCard';
 import styles from './nearbyjobs.style';
-
-
-const menuItems = [
-  {
-    id: 1,
-    name: "Plain Bagel",
-    description: "Freshly baked plain bagel",
-    price: 2.99,
-    image: require("../../../assets/plain.png")
-  },
-  {
-    id: 2,
-    name: "Everything Bagel",
-    description: "Freshly baked everything bagel",
-    price: 3.49,
-    image: require("../../../assets/every.png")
-  },
-  {
-    id: 3,
-    name: "Cinnamon Raisin Bagel",
-    description: "Freshly baked cinnamon raisin bagel",
-    price: 3.49,
-    image: require("../../../assets/cin.png")
-  },
-  // add more menu items here
-];
+import { allDayMenu } from '../Menu/menuData';
 
 
 const Nearbyjobs = () => {
@@ -50,7 +25,7 @@ const Nearbyjobs = () => {
       
       <View style={styles.cardsContainer}>
       <FlatList
-  data={menuItems}
+  data={allDayMenu}
   renderItem={({ item }) => (
     <TouchableOpacity 
   activeOpacity={0.6}

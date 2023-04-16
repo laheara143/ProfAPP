@@ -3,32 +3,10 @@ import { View, Text, TouchableOpacity, FlatList, ActivityIndicator, Image } from
 import { useNavigation } from '@react-navigation/native';
 import { COLORS, SIZES } from '../../../constants';
 import PopularjobCard from '../../common/cards/popular/PopularJobCard';
-import styles from './popularjobs.style';
+import { popularItems } from '../Menu/menuData';
+import Carousel from 'react-native-snap-carousel';
+import { BagelMenu, styles } from './popularjobs.style';
 
-const menuItems = [
-  {
-    id: 1,
-    name: "Plain Bagel",
-    description: "Freshly baked plain bagel",
-    price: 2.99,
-    image: require("../../../assets/plain.png")
-  },
-  {
-    id: 2,
-    name: "Everything Bagel",
-    description: "Freshly baked everything bagel",
-    price: 3.49,
-    image: require("../../../assets/every.png")
-  },
-  {
-    id: 3,
-    name: "Cinnamon Raisin Bagel",
-    description: "Freshly baked cinnamon raisin bagel",
-    price: 3.49,
-    image: require("../../../assets/cin.png")
-  },
-  // add more menu items here
-];
 
 const Popularjobs = () => {
   const [selectedJob, setSelectedJob] = useState();
@@ -49,7 +27,7 @@ const Popularjobs = () => {
 
       <View style={styles.cardsContainer}>
         <FlatList
-          data={menuItems}
+          data={popularItems}
           renderItem={({ item }) => (
             <TouchableOpacity 
   onPress={() => handleCardPress(item)}

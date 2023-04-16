@@ -4,8 +4,8 @@ import { useRouter } from 'expo-router';
 import Menu from '../Menu/Menu';
 import { COLORS, icons, SIZES, FONT } from '../../../constants';
 import styles from './welcome.style';
+import { foodTypes } from '../Menu/menuData'; // import foodTypes from menuData
 
-const foodTypes = ["Bagels", "Breakfast Sandwiches","Beverages", "Lunch Sandwiches", "Salads","Cream Cheese"];
 
 const Welcome = () => {
   const router = useRouter();
