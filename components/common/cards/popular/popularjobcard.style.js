@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import Carousel from 'react-native-snap-carousel';
 
 import { COLORS, FONT, SHADOWS, SIZES } from "../../../../constants";
 

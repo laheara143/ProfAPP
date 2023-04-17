@@ -1,8 +1,41 @@
-import { StyleSheet } from "react-native";
-
+import React from 'react';
+import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
+import Carousel from 'react-native-snap-carousel';
+import { popularitems } from '../Menu/menuData';
 import { FONT, SIZES, COLORS } from "../../../constants";
 
-const styles = StyleSheet.create({
+export const BagelMenu = () => {
+
+  const renderMenuItem = ({ item, index }) => {
+    return (
+      <View style={styles.menuItem}>
+        <Image style={styles.menuItemImage} source={{ uri: item.image }} />
+        <View style={styles.menuItemDetails}>
+          <Text style={styles.menuItemName}>{item.name}</Text>
+          <Text style={styles.menuItemDescription}>{item.description}</Text>
+          <Text style={styles.menuItemPrice}>{item.price}</Text>
+        </View>
+      </View>
+    );
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.headerTitle}>Menu</Text>
+      <Carousel
+        data={popularitems}
+        renderItem={renderMenuItem}
+        sliderWidth={Dimensions.get('window').width * 0.7}//Does not change distance of slider items
+        itemWidth={Dimensions.get('window').width * 0.7}
+        activeSlideAlignment="center"
+        carouselContainerStyle={styles.carouselContainer}
+        contentContainerStyle={styles.carouselContent}
+      />
+    </View>
+  );
+};
+
+export const styles = StyleSheet.create({
   container: {
     marginTop: SIZES.xLarge,
   },
@@ -30,18 +63,24 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
   },
   menuItem: {
-    width: "48%",
+    width: "50%",
     marginVertical: SIZES.small,
     backgroundColor: COLORS.white,
     borderRadius: SIZES.radius,
     elevation: 1,
     shadowColor: COLORS.black,
     shadowOffset: {
-      width: 0,
-      height: 1,
+      width: 5,
+      height: 5,
     },
     shadowOpacity: 0.2,
     shadowRadius: 1.41,
+  },
+  menuItemImage: {
+    width: "100%",
+    height: 100,
+    borderTopLeftRadius: SIZES.radius,
+    borderTopRightRadius: SIZES.radius,
   },
   menuItemDetails: {
     padding: SIZES.small,
@@ -63,13 +102,10 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
     marginTop: SIZES.small,
   },
-  menuItemImage: {
-    width: "100%",
-    height: 150,
-    borderTopLeftRadius: SIZES.radius,
-    borderTopRightRadius: SIZES.radius,
+  carouselContainer: {
+    marginBottom: 20,
+  },
+  carouselContent: {
+    alignItems: 'center',
   },
 });
-  
-
-export default styles;

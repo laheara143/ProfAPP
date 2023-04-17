@@ -3,6 +3,10 @@ import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native'
 
 import { checkImageURL } from '../../../../utils';
 
+//Not importing
+//import { menuData } from '../../menuData'
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -30,16 +34,7 @@ const styles = StyleSheet.create({
 });
 
 const BagelMenu = () => {
-  const bagels = [
-    { name: "Plain Bagel", price: "$2.99" },
-    { name: "Everything Bagel", price: "$3.49" },
-    { name: "Poppy Seed Bagel", price: "$2.99" },
-    { name: "Sesame Seed Bagel", price: "$2.99" },
-    { name: "Onion Bagel", price: "$2.99" },
-    { name: "Garlic Bagel", price: "$3.49" },
-    { name: "Cinnamon Raisin Bagel", price: "$3.99" },
-    { name: "Blueberry Bagel", price: "$3.99" },
-  ];
+  const bagels = menuData.filter(item => item.category === "Bagels");
 
   return (
     <View style={styles.container}>

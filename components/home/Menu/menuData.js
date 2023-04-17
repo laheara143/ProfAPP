@@ -7,59 +7,59 @@ export const menuData = {
         name: "Bagel and Cream Cheese",
         description: "Freshly baked bagel with cream cheese",
         price: 4.5,
-        //image: require('../../../assets/images/bagel-and-cream-cheese.jpg')
+        image: require('../../../assets/plain.png')
       },
       {
         id: 2,
-        name: "Breakfast Sandwich",
-        description: "Egg, cheese, and bacon on a bagel",
-        price: 6.5,
-        //image: require('../../../assets/images/breakfast-sandwich.jpg')
+        name: "Sriracha Maple Tandem Sandwich",
+        description: "Egg, cheddar, spinach, and bacon topped with sriracha maple syrup",
+        price: 7.29,
+        image: require('../../../assets/siracha.png')
       },
       {
         id: 3,
-        name: "Greek Yogurt Parfait",
-        description: "Vanilla Greek yogurt, mixed berries, and granola",
-        price: 5.5,
-        //image: require('../../../assets/images/greek-yogurt-parfait.jpg')
+        name: "Yogurt Parfait",
+        description: "Nonfat Greek vanilla yogurt with blueberries, strawberries and house made granola",
+        price: 5.79,
+        image: require('../../../assets/yogurt.png')
       },
       {
         id: 4,
-        name: "Cobb Salad",
-        description: "Mixed greens, bacon, hard-boiled egg, avocado, chicken, and blue cheese",
-        price: 12.5,
-        //image: require('../../../assets/images/cobb-salad.jpg')
+        name: "Full Caeser Salad",
+        description: "Romaine lettuce, Parmesan cheese, house made croutons (contain dairy), and Caesar dressing.",
+        price: 8.99,
+        image: require('../../../assets/salad.png')
       },
       {
         id: 5,
-        name: "Lox Bagel",
-        description: "Smoked salmon, cream cheese, tomato, and red onion on a bagel",
-        price: 9.5,
-        //image: require('../../../assets/images/lox-bagel.jpg')
+        name: "The Tandem Classic",
+        description: "Plain cream cheese, smoked salmon, tomatoes, red onions, and capers.",
+        price: 9.49,
+        image: require('../../../assets/classic.png')
       },
     ],
     popularItems: [
       {
         id: 1,
-        name: "Bagel and Cream Cheese",
-        description: "Freshly baked bagel with cream cheese",
-        price: 4.5,
-        //image: require('../../../assets/images/bagel-and-cream-cheese.jpg')
-      },
-      {
+        name: "Egg Sandwich",
+        description: "Bagel with egg and sausage and your choice of cheese",
+        price: 3.69,
+        image: require('../../../assets/eggsan.png')
+        },
+        {
         id: 2,
         name: "Iced Coffee",
         description: "Chilled coffee with milk and sweetener",
-        price: 3.5,
-        //image: require('../../../assets/images/iced-coffee.jpg')
-      },
-      {
+        price: 3.19,
+        image: require('../../../assets/iced.png')
+        },
+        {
         id: 3,
-        name: "Avocado Toast",
-        description: "Avocado, tomato, and red onion on multigrain toast",
-        price: 8.5,
-        //image: require('../../../assets/images/avocado-toast.jpg')
-      },
+        name: "Spicy Tandem Sandwich",
+        description: "Egg, bacon, cheddar cheese, spinach, jalapeno's, and chipotle mayo.",
+        price: 7.29,
+        image: require('../../../assets/spicy.png')
+        },
     ],
     foodTypes: [
       {
@@ -70,14 +70,14 @@ export const menuData = {
             name: "Bagel and Cream Cheese",
             description: "Freshly baked bagel with cream cheese",
             price: 4.5,
-            //image: require('../../../assets/images/bagel-and-cream-cheese.jpg')
+            image: require('../../../assets/plain.png')
           },
           {
             id: 2,
             name: "Lox Bagel",
             description: "Smoked salmon, cream cheese, tomato, and red onion on a bagel",
             price: 9.5,
-            //image: require('../../../assets/images/lox-bagel.jpg')
+            image: require('../../../assets/classic.png')
           },
         ]
       },
@@ -89,15 +89,22 @@ export const menuData = {
             name: "Breakfast Sandwich",
             description: "Egg, cheese, and bacon on a bagel",
             price: 6.5,
-            //image: require('../../../assets/images/breakfast-sandwich.jpg')
+            image: require('../../../assets/eggsan.png')
           },
           {
             id: 2,
-            name: "Veggie Breakfast Sandwich",
-            description: "Egg, veggies",
-            price: 6.5,
-            //image
+            name: "Fresh Tandem Sandwich",
+            description: "Egg, pepper jack cheese, tomato, red onions, and avocado.",
+            price: 6.99,
+            image: require('../../../assets/fresh.png')
           },
+          {
+            id: 3,
+            name: "Spicy Tandem Sandwich",
+            description: "Egg, bacon, cheddar cheese, spinach, jalapeno's, and chipotle mayo.",
+            price: 7.29,
+            image: require('../../../assets/spicy.png')
+            },
         ]
     },
     {
@@ -105,17 +112,17 @@ export const menuData = {
         data: [
           {
             id: 1,
-            name: "Breakfast Sandwich",
-            description: "Egg, cheese, and bacon on a bagel",
-            price: 6.5,
-            //image: require('../../../assets/images/breakfast-sandwich.jpg')
-          },
+            name: "Iced Coffee",
+            description: "Chilled coffee with milk and sweetener",
+            price: 3.19,
+            image: require('../../../assets/iced.png')
+            },
           {
             id: 2,
-            name: "Veggie Breakfast Sandwich",
-            description: "Egg, veggies",
-            price: 6.5,
-            //image
+            name: "Iced Chocolate Macaroon Latte",
+            description: "Chocolate sauce and coconut syrup, with espresso and milk of choice served over ice. Topped with whipped cream and shredded coconut.",
+            price: 5.49,
+            image: require('../../../assets/Iced1.png')
           },
         ]
     },
@@ -124,17 +131,17 @@ export const menuData = {
         data: [
           {
             id: 1,
-            name: "Breakfast Sandwich",
-            description: "Egg, cheese, and bacon on a bagel",
-            price: 6.5,
-            //image: require('../../../assets/images/breakfast-sandwich.jpg')
+            name: "Classic BLT",
+            description: "Bacon, lettuce, tomato, and mayonnaise.",
+            price: 7.79,
+            image: require('../../../assets/blt.png')
           },
           {
             id: 2,
-            name: "Veggie Breakfast Sandwich",
-            description: "Egg, veggies",
-            price: 6.5,
-            //image
+            name: "Turkey Chipotle",
+            description: "Turkey, cheddar cheese, avocado, oven roasted tomatoes, spinach, and chipotle mayo.",
+            price: 8.29,
+            image: require('../../../assets/turkey.png')//change
           },
         ]
     },
@@ -143,17 +150,17 @@ export const menuData = {
         data: [
           {
             id: 1,
-            name: "Breakfast Sandwich",
-            description: "Egg, cheese, and bacon on a bagel",
-            price: 6.5,
-            //image: require('../../../assets/images/breakfast-sandwich.jpg')
+            name: "Full Caeser Salad",
+            description: "Romaine lettuce, Parmesan cheese, house made croutons (contain dairy), and Caesar dressing.",
+            price: 8.99,
+            image: require('../../../assets/salad.png')
           },
           {
             id: 2,
-            name: "Veggie Breakfast Sandwich",
-            description: "Egg, veggies",
-            price: 6.5,
-            //image
+            name: "Full Santa Fe Salad",
+            description: "Field greens, corn, black beans, avocado, red onions, cherry tomatoes, tortilla strips, and chipotle ranch dressing.",
+            price: 9.99,
+            image: require('../../../assets/santa.png')
           },
         ]
     },
@@ -162,84 +169,103 @@ export const menuData = {
         data: [
           {
             id: 1,
-            name: "Breakfast Sandwich",
-            description: "Egg, cheese, and bacon on a bagel",
+            name: "Tub Bacon Scallion Cream Cheese",
+            description: "Lipsum Dorem",
             price: 6.5,
-            //image: require('../../../assets/images/breakfast-sandwich.jpg')
+           // image: require('../../../assets/siracha.png')//find picture
           },
           {
             id: 2,
-            name: "Veggie Breakfast Sandwich",
-            description: "Egg, veggies",
+            name: "Tub Double Olive Cream Cheese",
+            description: "Lipsum Dorem",
             price: 6.5,
-            //image
+           // image: require('../../../assets/siracha.png')//find picture
           },
         ]
     },
-]
-};
-  
-export const foodTypes = ["Bagels", "Breakfast Sandwiches", "Beverages", "Lunch Sandwiches", "Salads", "Cream Cheese"];
-
-
-export const popularItems = [
+    {
+      title: "Extras",
+      data: [
         {
           id: 1,
-          name: "Bagel and Cream Cheese",
-          description: "Freshly baked bagel with cream cheese",
-          price: 4.5,
-          image: require('../../../assets/plain.png')
+          name: "Scone",
+          description: "Lipsum Dorem",
+          price: 2.49,
+          image: require('../../../assets/scone.png')
         },
         {
           id: 2,
-          name: "Iced Coffee",
-          description: "Chilled coffee with milk and sweetener",
-          price: 3.5,
-          image: require('../../../assets/plain.png')
+          name: "Muffin",
+          description: "Lipsum Dorem",
+          price: 2.19,
+          image: require('../../../assets/muffin.png')
         },
-        {
-          id: 3,
-          name: "Avocado Toast",
-          description: "Avocado, tomato, and red onion on multigrain toast",
-          price: 8.5,
-          image: require('../../../assets/plain.png')
-        },
+      ]
+  },
+]
+};
+  
+export const foodTypes = ["Bagels", "Breakfast Sandwiches", "Beverages", "Lunch Sandwiches", "Salads", "Cream Cheese", "Extras"];
+
+
+export const popularItems = [
+  {
+    id: 1,
+    name: "Egg Sandwich",
+    description: "Bagel with egg and sausage and your choice of cheese",
+    price: 3.69,
+    image: require('../../../assets/eggsan.png')
+    },
+    {
+    id: 2,
+    name: "Iced Coffee",
+    description: "Chilled coffee with milk and sweetener",
+    price: 3.19,
+    image: require('../../../assets/iced.png')
+    },
+    {
+    id: 3,
+    name: "Spicy Tandem Sandwich",
+    description: "Egg, bacon, cheddar cheese, spinach, jalapeno's, and chipotle mayo.",
+    price: 7.29,
+    image: require('../../../assets/spicy.png')
+    },
       ];
 
 export const allDayMenu = [
-    {
-      id: 1,
-      name: "Bagel and Cream Cheese",
-      description: "Freshly baked bagel with cream cheese",
-      price: 4.5,
-      image: require('../../../assets/plain.png')
-    },
-    {
-      id: 2,
-      name: "Breakfast Sandwich",
-      description: "Egg, cheese, and bacon on a bagel",
-      price: 6.5,
-      //image: require('../../../assets/plain.png')
-    },
-    {
-      id: 3,
-      name: "Greek Yogurt Parfait",
-      description: "Vanilla Greek yogurt, mixed berries, and granola",
-      price: 5.5,
-      //image: require('../../../assets/images/greek-yogurt-parfait.jpg')
-    },
-    {
-      id: 4,
-      name: "Cobb Salad",
-      description: "Mixed greens, bacon, hard-boiled egg, avocado, chicken, and blue cheese",
-      price: 12.5,
-      //image: require('../../../assets/images/cobb-salad.jpg')
-    },
-    {
-      id: 5,
-      name: "Lox Bagel",
-      description: "Smoked salmon, cream cheese, tomato, and red onion on a bagel",
-      price: 9.5,
-      //image: require('../../../assets/images/lox-bagel.jpg')
-    },
+  {
+    id: 1,
+    name: "Bagel and Cream Cheese",
+    description: "Freshly baked bagel with cream cheese",
+    price: 4.5,
+    image: require('../../../assets/plain.png')
+  },
+  {
+    id: 2,
+    name: "Sriracha Maple Tandem Sandwich",
+    description: "Egg, cheddar, spinach, and bacon topped with sriracha maple syrup",
+    price: 7.29,
+    image: require('../../../assets/siracha.png')
+  },
+  {
+    id: 3,
+    name: "Yogurt Parfait",
+    description: "Nonfat Greek vanilla yogurt with blueberries, strawberries and house made granola",
+    price: 5.79,
+    image: require('../../../assets/yogurt.png')
+  },
+  {
+    id: 4,
+    name: "Full Caeser Salad",
+    description: "Romaine lettuce, Parmesan cheese, house made croutons (contain dairy), and Caesar dressing.",
+    price: 8.99,
+    image: require('../../../assets/salad.png')
+  },
+  {
+    id: 5,
+    name: "The Tandem Classic",
+    description: "Plain cream cheese, smoked salmon, tomatoes, red onions, and capers.",
+    price: 9.49,
+    image: require('../../../assets/classic.png')
+  },
   ]
