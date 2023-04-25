@@ -34,6 +34,12 @@ const styles = StyleSheet.create({
     padding: SIZES.base,
     borderRadius: SIZES.radius,
     marginBottom: SIZES.base, // added margin-bottom
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  menuItemDetails: {
+    flex: 1,
   },
   menuItemName: {
     fontSize: SIZES.h3,
@@ -50,6 +56,17 @@ const styles = StyleSheet.create({
     fontSize: SIZES.body3,
     fontFamily: FONT.medium,
     color: COLORS.primary,
+  },
+  addToCartBtn: {
+    backgroundColor: COLORS.primary,
+    paddingHorizontal: SIZES.base,
+    paddingVertical: SIZES.small,
+    borderRadius: SIZES.radius,
+  },
+  addToCartBtnText: {
+    fontSize: SIZES.body3,
+    fontFamily: FONT.medium,
+    color: COLORS.white,
   },
 });
 

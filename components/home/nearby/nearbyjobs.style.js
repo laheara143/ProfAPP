@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
-import { popularitems } from '../Menu/menuData';
+import { allDayMenu } from '../Menu/menuData';
 import { FONT, SIZES, COLORS } from "../../../constants";
 
 export const BagelMenu = () => {
@@ -14,6 +14,9 @@ export const BagelMenu = () => {
           <Text style={styles.menuItemName}>{item.name}</Text>
           <Text style={styles.menuItemDescription}>{item.description}</Text>
           <Text style={styles.menuItemPrice}>{item.price}</Text>
+          <TouchableOpacity style={styles.addToCartBtn}>
+            <Text style={styles.addToCartText}>Add to Cart</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -23,7 +26,7 @@ export const BagelMenu = () => {
     <View style={styles.container}>
       <Text style={styles.headerTitle}>Menu</Text>
       <Carousel
-        data={popularitems}
+        data={allDayMenu}
         renderItem={renderMenuItem}
         sliderWidth={Dimensions.get('window').width * 0.7}//Does not change distance of slider items
         itemWidth={Dimensions.get('window').width * 0.7}
@@ -108,7 +111,19 @@ export const styles = StyleSheet.create({
   carouselContent: {
     alignItems: 'center',
   },
+  addToCartButton: {
+    backgroundColor: COLORS.complimentary,
+    borderRadius: SIZES.radius,
+    paddingVertical: SIZES.small,
+    paddingHorizontal: SIZES.medium,
+    marginTop: SIZES.small,
+  },
+  addToCartButtonText: {
+    color: COLORS.white,
+    fontSize: SIZES.body3,
+    fontFamily: FONT.medium,
+    textAlign: 'center',
+  },
 });
-  
 
 export default styles;

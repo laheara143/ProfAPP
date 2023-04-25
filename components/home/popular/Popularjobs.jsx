@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, FlatList, ActivityIndicator, Image, Dimensions  } from 'react-native';
+import { View, Text, TouchableOpacity, FlatList, ActivityIndicator, Image, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { COLORS, SIZES } from '../../../constants';
 import PopularjobCard from '../../common/cards/popular/PopularJobCard';
@@ -10,11 +10,30 @@ import { BagelMenu, bagelMenuStyles } from './popularjobs.style';
 
 const Popularjobs = () => {
   const [selectedJob, setSelectedJob] = useState();
+  const [cartItems, setCartItems] = useState([]);
   const navigation = useNavigation();
 
   const handleCardPress = (item) => {
-    navigation.navigate('Menu', { job: item });
-  }; // Fix transition to new screen
+    setSelectedJob(item);
+  };
+
+  const handleAddToCart = (item) => {
+    console.log(`Added ${item.name} to cart`);
+    const newCartItems = [];
+    let found = false;
+    for (let i = 0; i < cartItems.length; i++) {
+      if (cartItems[i].id === item.id) {
+        newCartItems.push({...item, quantity: cartItems[i].quantity + 1});
+        found = true;
+      } else {
+        newCartItems.push(cartItems[i]);
+      }
+    }
+    if (!found) {
+      newCartItems.push({...item, quantity: 1});
+    }
+    setCartItems(newCartItems);
+  };
 
   const renderItem = ({ item }) => {
     return (
@@ -26,6 +45,12 @@ const Popularjobs = () => {
             <Text style={styles.menuItemPrice}>${item.price}</Text>
           </View>
           <Image source={item.image} style={styles.menuItemImage} />
+          <TouchableOpacity
+            style={styles.addToCartButton}
+            onPress={() => handleAddToCart(item)}
+          >
+            <Text style={styles.addToCartButtonText}>Add to Cart</Text>
+          </TouchableOpacity>
         </View>
       </TouchableOpacity>
     );
@@ -47,6 +72,31 @@ const Popularjobs = () => {
           sliderWidth={Dimensions.get('window').width}
           itemWidth={Dimensions.get('window').width * 0.7}
         />
+      </View>
+      {selectedJob && (
+        <PopularjobCard
+          job={selectedJob}
+          visible={Boolean(selectedJob)}
+          onClose={() => setSelectedJob(null)}
+        />
+      )}
+
+      <View style={styles.cartContainer}>
+        <Text style={styles.cartTitle}>Cart</Text>
+        {cartItems.length > 0 ? (
+          <FlatList
+            data={cartItems}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <View style={styles.cartItem}>
+                <Text style={styles.cartItemName}>{item.name}</Text>
+                <Text style={styles.cartItemPrice}>${item.price}</Text>
+              </View>
+            )}
+          />
+        ) : (
+          <Text style={styles.cartEmpty}>Your cart is empty</Text>
+        )}
       </View>
     </View>
   );

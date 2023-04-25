@@ -31,6 +31,16 @@ const styles = StyleSheet.create({
   itemPrice: {
     fontSize: 16,
   },
+  button: {
+    backgroundColor: "#4CAF50",
+    padding: 10,
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
 });
 
 const BagelMenu = () => {
@@ -44,6 +54,9 @@ const BagelMenu = () => {
           <View key={bagel.name} style={styles.item}>
             <Text style={styles.itemName}>{bagel.name}</Text>
             <Text style={styles.itemPrice}>{bagel.price}</Text>
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttonText}>Add to Cart</Text>
+            </TouchableOpacity>
           </View>
         ))}
       </View>

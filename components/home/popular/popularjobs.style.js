@@ -20,17 +20,16 @@ export const BagelMenu = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.headerTitle}>Menu</Text>
-      <Carousel
-        data={popularitems}
-        renderItem={renderMenuItem}
-        sliderWidth={Dimensions.get('window').width * 0.7}//Does not change distance of slider items
-        itemWidth={Dimensions.get('window').width * 0.7}
-        activeSlideAlignment="center"
-        carouselContainerStyle={styles.carouselContainer}
-        contentContainerStyle={styles.carouselContent}
-      />
+    <View style={styles.menuItem}>
+      <Image style={styles.menuItemImage} source={{ uri: item.image }} />
+      <View style={styles.menuItemDetails}>
+        <Text style={styles.menuItemName}>{item.name}</Text>
+        <Text style={styles.menuItemDescription}>{item.description}</Text>
+        <Text style={styles.menuItemPrice}>{item.price}</Text>
+        <View style={styles.addToCartButton}>
+          <Text style={styles.addToCartButtonText}>Add to Cart</Text>
+        </View>
+      </View>
     </View>
   );
 };
@@ -107,5 +106,18 @@ export const styles = StyleSheet.create({
   },
   carouselContent: {
     alignItems: 'center',
+  },
+  addToCartButton: {
+    backgroundColor: COLORS.complimentary,
+    borderRadius: SIZES.radius,
+    paddingVertical: SIZES.small,
+    paddingHorizontal: SIZES.medium,
+    marginTop: SIZES.small,
+  },
+  addToCartButtonText: {
+    color: COLORS.white,
+    fontSize: SIZES.body3,
+    fontFamily: FONT.medium,
+    textAlign: 'center',
   },
 });
