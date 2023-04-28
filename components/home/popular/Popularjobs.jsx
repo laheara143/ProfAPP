@@ -11,6 +11,7 @@ import { BagelMenu, bagelMenuStyles } from './popularjobs.style';
 const Popularjobs = () => {
   const [selectedJob, setSelectedJob] = useState();
   const [cartItems, setCartItems] = useState([]);
+  const [sortedItems, setSortedItems] = useState([...popularItems]); // state for sorted items
   const navigation = useNavigation();
 
   const handleCardPress = (item) => {
@@ -23,16 +24,21 @@ const Popularjobs = () => {
     let found = false;
     for (let i = 0; i < cartItems.length; i++) {
       if (cartItems[i].id === item.id) {
-        newCartItems.push({...item, quantity: cartItems[i].quantity + 1});
+        newCartItems.push({ ...item, quantity: cartItems[i].quantity + 1 });
         found = true;
       } else {
         newCartItems.push(cartItems[i]);
       }
     }
     if (!found) {
-      newCartItems.push({...item, quantity: 1});
+      newCartItems.push({ ...item, quantity: 1 });
     }
     setCartItems(newCartItems);
+  };
+
+  const handleSortByPrice = () => {
+    const sorted = [...sortedItems].sort((a, b) => a.price - b.price);
+    setSortedItems(sorted);
   };
 
   const renderItem = ({ item }) => {
@@ -65,9 +71,13 @@ const Popularjobs = () => {
         </TouchableOpacity>
       </View>
 
+      <TouchableOpacity onPress={handleSortByPrice}>
+        <Text style={styles.headerBtn}>Sort by Price</Text>
+      </TouchableOpacity>
+
       <View style={styles.cardsContainer}>
         <Carousel
-          data={popularItems}
+          data={sortedItems} // use sortedItems state for data
           renderItem={renderItem}
           sliderWidth={Dimensions.get('window').width}
           itemWidth={Dimensions.get('window').width * 0.7}

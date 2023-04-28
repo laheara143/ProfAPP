@@ -61,6 +61,7 @@ const Nearbyjobs = () => {
   
       <View style={styles.cardsContainer}>
         <Carousel
+          //Add if statement so if one of the filters is pressed this will change data into that food type
           data={allDayMenu}
           renderItem={renderItem}
           sliderWidth={Dimensions.get('window').width}
