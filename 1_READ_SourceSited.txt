@@ -1,0 +1,20 @@
+
+Sources used during project (More sources were used but these were the major ones that helped with this project.)
+
+Tutorial Vidoes (Incroporated different things from these tutorials but used the first one as the base):
+
+https://youtu.be/mJ3bGvy0WAY  
+https://youtu.be/JqPezeQiwxk
+https://youtu.be/esbdyyEvkxw 
+https://youtu.be/URXYsrawfQs
+https://youtu.be/obH0Po_RdWk
+
+Tutorial Videos for functions
+
+https://youtu.be/EQugJJGMOxI
+https://youtu.be/gVu3BKWtfIg
+
+
+ChatGPT helped a lot with fixing confusions with errors and debugging
+
+

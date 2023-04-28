@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, FlatList, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
-import Menu from '../Menu/Menu';
+import Menu, { menuData } from '../Menu/Menu';
 import { COLORS, icons, SIZES, FONT } from '../../../constants';
 import styles from './welcome.style';
 import { foodTypes } from '../Menu/menuData'; // import foodTypes from menuData
@@ -10,6 +10,15 @@ import { foodTypes } from '../Menu/menuData'; // import foodTypes from menuData
 const Welcome = () => {
   const router = useRouter();
   const [activeFoodType, setActiveFoodType] = useState('Bagels');
+  const [searchValue, setSearchValue] = useState('');
+  const [filteredData, setFilteredData] = useState(menuData);
+
+  const handleSearch = () => {
+    const newData = menuData.filter(item =>
+      item.name.toLowerCase().includes(searchValue.toLowerCase())
+    );
+    setFilteredData(newData);
+  };
 
   return (
     <View>
@@ -21,22 +30,16 @@ const Welcome = () => {
 
       <View style={styles.searchContainer}>
         <View style={styles.searchWrapper}>
-          <TextInput
-            style={styles.searchInput}
-            value=""
-            onChange={() => {}}
-            placeholder="Looking for something specific?"
-            placeholderTextColor="grey"
-          />
+        <TextInput
+  style={styles.searchInput}
+  value={searchValue}
+  onChangeText={text => setSearchValue(text)}
+  placeholder="Looking for something specific?"
+  placeholderTextColor="grey"
+/>
+
         </View>
 
-        <TouchableOpacity style={styles.searchBtn} onPress={() => {}}>
-          <Image
-            source={icons.search}
-            resizeMode="contain"
-            style={styles.searchBtnImage}
-          />
-        </TouchableOpacity>
       </View>
 
       <View style={styles.tabsContainer}>
@@ -47,6 +50,8 @@ const Welcome = () => {
               style={styles.tab(activeFoodType, item)}
               onPress={() => {
                 setActiveFoodType(item);
+                const newData = menuData.filter(menuItem => menuItem.foodType === item);
+                setFilteredData(newData);
               }}
             >
               <Text style={styles.tabText(activeFoodType, item)}>{item}</Text>
@@ -59,7 +64,7 @@ const Welcome = () => {
       </View>
 
       <View style={styles.menuContainer}>
-        <Menu foodType={activeFoodType} />
+        <Menu foodType={activeFoodType} data={filteredData} />
       </View>
     </View>
   );

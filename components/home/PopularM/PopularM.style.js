@@ -120,4 +120,44 @@ export const styles = StyleSheet.create({
     fontFamily: FONT.medium,
     textAlign: 'center',
   },
+  cartContainer: {
+    backgroundColor: COLORS.white,
+    padding: SIZES.padding,
+    marginTop: SIZES.padding,
+    borderRadius: SIZES.radius,
+    shadowColor: COLORS.black,
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 1,
+  },
+  cartItem: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 10,
+    marginBottom: 10,
+    backgroundColor: "#f2f2f2",
+    borderRadius: 5,
+  },
+  cartTitle:{
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  cartItemName: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  cartItemQuantity: {
+    fontSize: 14,
+    color: "#777",
+  },
+  cartItemPrice: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  
 });

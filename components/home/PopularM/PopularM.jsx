@@ -35,6 +35,7 @@ const Popularjobs = () => {
     }
     setCartItems(newCartItems);
   };
+  
 
   const handleSortByPrice = () => {
     const sorted = [...sortedItems].sort((a, b) => a.price - b.price);
@@ -77,19 +78,13 @@ const Popularjobs = () => {
 
       <View style={styles.cardsContainer}>
         <Carousel
-          data={sortedItems} // use sortedItems state for data
+          data={sortedItems}
           renderItem={renderItem}
           sliderWidth={Dimensions.get('window').width}
           itemWidth={Dimensions.get('window').width * 0.7}
         />
       </View>
-      {selectedJob && (
-        <PopularjobCard
-          job={selectedJob}
-          visible={Boolean(selectedJob)}
-          onClose={() => setSelectedJob(null)}
-        />
-      )}
+      
 
       <View style={styles.cartContainer}>
         <Text style={styles.cartTitle}>Cart</Text>
@@ -100,12 +95,14 @@ const Popularjobs = () => {
             renderItem={({ item }) => (
               <View style={styles.cartItem}>
                 <Text style={styles.cartItemName}>{item.name}</Text>
+                <Text style={styles.cartItemQuantity}>Quantity: {item.quantity}</Text>
                 <Text style={styles.cartItemPrice}>${item.price}</Text>
               </View>
             )}
+            
           />
         ) : (
-          <Text style={styles.cartEmpty}>Your cart is empty</Text>
+          <Text style={styles.cartTitle}>Your cart is empty</Text>
         )}
       </View>
     </View>
