@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, FlatList, ActivityIndicator, Image, Dimensions  } from 'react-native';
 import { COLORS, SIZES } from '../../../constants';
-import NearbyJobCard from '../../common/cards/nearby/NearbyJobCard';
-import styles from './nearbyjobs.style';
+import styles from './AllDay.style';
 import { allDayMenu } from '../Menu/menuData';
 import Carousel from 'react-native-snap-carousel';
 
 const Nearbyjobs = () => {
-  const [selectedJob, setSelectedJob] = useState();
   const [cartItems, setCartItems] = useState([]);
+  const [sortedItems, setSortedItems] = useState([...allDayMenu]);
+  const [sortOrder, setSortOrder] = useState('asc');
+
 
   const handleCardPress = (item) => {
 
   };
 
+
+  //Big O (O(n))
   const handleAddToCart = (item) => {
     console.log(`Added ${item.name} to cart`);
     const newCartItems = [];
@@ -31,6 +34,39 @@ const Nearbyjobs = () => {
     }
     setCartItems(newCartItems);
   };
+
+  //Big O (O(n2))
+  const handleSortByPrice = () => {
+    const sorted = [];
+    for (let i = 0; i < allDayMenu.length; i++) {
+      let item = allDayMenu[i];
+      let inserted = false;
+      for (let j = 0; j < sorted.length; j++) {
+        if ((sortOrder === 'asc' && item.price < sorted[j].price) || (sortOrder === 'desc' && item.price > sorted[j].price)) {
+          sorted.splice(j, 0, item);
+          inserted = true;
+          break;
+        }
+      }
+      if (!inserted) {
+        sorted.push(item);
+      }
+    }
+    setSortedItems(sorted);
+    setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+  };
+
+  //Big O (O(n))
+const handleRemoveFromCart = (item) => {
+  console.log(`Removed ${item.name} from cart`);
+  const newCartItems = [];
+  for (let i = 0; i < cartItems.length; i++) {
+    if (cartItems[i].id !== item.id) {
+      newCartItems.push(cartItems[i]);
+    }
+  }
+  setCartItems(newCartItems);
+};
 
   const renderItem = ({ item }) => {
     return (
@@ -58,17 +94,23 @@ const Nearbyjobs = () => {
           <Text style={styles.headerBtn}>See All</Text>
         </TouchableOpacity>
       </View>
+
+      <TouchableOpacity onPress={handleSortByPrice}>
+        <Text style={styles.headerBtn}>Sort by Price</Text>
+      </TouchableOpacity>
   
       <View style={styles.cardsContainer}>
         <Carousel
           //Add if statement so if one of the filters is pressed this will change data into that food type
-          data={allDayMenu}
+          data={sortedItems}
           renderItem={renderItem}
           sliderWidth={Dimensions.get('window').width}
           itemWidth={Dimensions.get('window').width * 0.7}
         />
       </View>
   
+      <View style={{ position: 'relative', flex: 1 }}>
+      <View style={styles.cartWrapper}>
       <View style={styles.cartContainer}>
         <Text style={styles.cartTitle}>Cart</Text>
         {cartItems.length > 0 ? (
@@ -77,15 +119,25 @@ const Nearbyjobs = () => {
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
               <View style={styles.cartItem}>
-                <Text style={styles.cartItemName}>{item.name}</Text>
-                <Text style={styles.cartItemPrice}>${item.price}</Text>
-              </View>
+              <Text style={styles.cartItemName}>{item.name}</Text>
+              <Text style={styles.cartItemQuantity}>Q: {item.quantity}</Text>
+              <Text style={styles.cartItemPrice}>${item.price}</Text>
+              <TouchableOpacity
+              style={styles.removeFromCartButton}
+              onPress={() => handleRemoveFromCart(item)}
+              >
+        <Text style={styles.removeFromCartButtonText}>Remove</Text>
+      </TouchableOpacity>
+    </View>
             )}
+            
           />
         ) : (
-          <Text style={styles.cartEmpty}>Your cart is empty</Text>
+          <Text style={styles.cartTitle}>Your cart is empty</Text>
         )}
       </View>
+    </View>
+    </View>
     </View>
   );
   

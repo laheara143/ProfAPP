@@ -6,32 +6,8 @@ import { FONT, SIZES, COLORS } from "../../../constants";
 
 export const BagelMenu = () => {
 
-  const renderMenuItem = ({ item, index }) => {
-    return (
-      <View style={styles.menuItem}>
-        <Image style={styles.menuItemImage} source={{ uri: item.image }} />
-        <View style={styles.menuItemDetails}>
-          <Text style={styles.menuItemName}>{item.name}</Text>
-          <Text style={styles.menuItemDescription}>{item.description}</Text>
-          <Text style={styles.menuItemPrice}>{item.price}</Text>
-        </View>
-      </View>
-    );
-  };
 
-  return (
-    <View style={styles.menuItem}>
-      <Image style={styles.menuItemImage} source={{ uri: item.image }} />
-      <View style={styles.menuItemDetails}>
-        <Text style={styles.menuItemName}>{item.name}</Text>
-        <Text style={styles.menuItemDescription}>{item.description}</Text>
-        <Text style={styles.menuItemPrice}>{item.price}</Text>
-        <View style={styles.addToCartButton}>
-          <Text style={styles.addToCartButtonText}>Add to Cart</Text>
-        </View>
-      </View>
-    </View>
-  );
+  
 };
 
 export const styles = StyleSheet.create({
@@ -158,6 +134,11 @@ export const styles = StyleSheet.create({
   cartItemPrice: {
     fontSize: 16,
     fontWeight: "bold",
+  },
+  cartWrapper: { //Does not work
+    position: 'fixed',
+    bottom: 0,
+    width: '100%',
   },
   
 });

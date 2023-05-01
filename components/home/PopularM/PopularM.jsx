@@ -2,22 +2,22 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, FlatList, ActivityIndicator, Image, Dimensions } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { COLORS, SIZES } from '../../../constants';
-import PopularjobCard from '../../common/cards/popular/PopularJobCard';
 import { popularItems } from '../Menu/menuData';
 import Carousel from 'react-native-snap-carousel';
-import { ProductSlider, styles } from './popularjobs.style';
-import { BagelMenu, bagelMenuStyles } from './popularjobs.style';
+import { ProductSlider, styles } from './PopularM.style';
+import { BagelMenu, bagelMenuStyles } from './PopularM.style';
 
 const Popularjobs = () => {
-  const [selectedJob, setSelectedJob] = useState();
   const [cartItems, setCartItems] = useState([]);
-  const [sortedItems, setSortedItems] = useState([...popularItems]); // state for sorted items
-  const navigation = useNavigation();
+  const [sortedItems, setSortedItems] = useState([...popularItems]);
+  const [sortOrder, setSortOrder] = useState('asc');
+
 
   const handleCardPress = (item) => {
     setSelectedJob(item);
   };
 
+  //Big O (O(n))
   const handleAddToCart = (item) => {
     console.log(`Added ${item.name} to cart`);
     const newCartItems = [];
@@ -36,32 +36,63 @@ const Popularjobs = () => {
     setCartItems(newCartItems);
   };
   
+//Big O (O(n2))
+const handleSortByPrice = () => {
+  const sorted = [];
+  for (let i = 0; i < sortedItems.length; i++) {
+    let item = sortedItems[i];
+    let inserted = false;
+    for (let j = 0; j < sorted.length; j++) {
+      if ((sortOrder === 'asc' && item.price < sorted[j].price) || (sortOrder === 'desc' && item.price > sorted[j].price)) {
+        sorted.splice(j, 0, item);
+        inserted = true;
+        break;
+      }
+    }
+    if (!inserted) {
+      sorted.push(item);
+    }
+  }
+  setSortedItems(sorted);
+  setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+};
 
-  const handleSortByPrice = () => {
-    const sorted = [...sortedItems].sort((a, b) => a.price - b.price);
-    setSortedItems(sorted);
-  };
+//Big O (O(n))
+const handleRemoveFromCart = (item) => {
+  console.log(`Removed ${item.name} from cart`);
+  const newCartItems = [];
+  for (let i = 0; i < cartItems.length; i++) {
+    if (cartItems[i].id !== item.id) {
+      newCartItems.push(cartItems[i]);
+    }
+  }
+  setCartItems(newCartItems);
+};
 
-  const renderItem = ({ item }) => {
-    return (
-      <TouchableOpacity onPress={() => handleCardPress(item)} activeOpacity={0.6}>
-        <View style={styles.menuItem}>
-          <View style={styles.menuItemDetails}>
-            <Text style={styles.menuItemName}>{item.name}</Text>
-            <Text style={styles.menuItemDescription}>{item.description}</Text>
-            <Text style={styles.menuItemPrice}>${item.price}</Text>
-          </View>
-          <Image source={item.image} style={styles.menuItemImage} />
-          <TouchableOpacity
-            style={styles.addToCartButton}
-            onPress={() => handleAddToCart(item)}
-          >
-            <Text style={styles.addToCartButtonText}>Add to Cart</Text>
-          </TouchableOpacity>
+
+
+const renderItem = ({ item }) => {
+  return (
+    <TouchableOpacity onPress={() => handleCardPress(item)} activeOpacity={0.6}>
+      <View style={styles.menuItem}>
+        <View style={styles.menuItemDetails}>
+          <Text style={styles.menuItemName}>{item.name}</Text>
+          <Text style={styles.menuItemDescription}>{item.description}</Text>
+          <Text style={styles.menuItemPrice}>${item.price}</Text>
         </View>
-      </TouchableOpacity>
-    );
-  };
+        <Image source={item.image} style={styles.menuItemImage} />
+        <TouchableOpacity
+          style={styles.addToCartButton}
+          onPress={() => handleAddToCart(item)}
+        >
+          <Text style={styles.addToCartButtonText}>Add to Cart</Text>
+        </TouchableOpacity>
+      </View>
+    </TouchableOpacity>
+  );
+};
+
+
 
   return (
     <View style={styles.container}>
@@ -85,7 +116,8 @@ const Popularjobs = () => {
         />
       </View>
       
-
+      <View style={{ position: 'relative', flex: 1 }}>
+      <View style={styles.cartWrapper}>
       <View style={styles.cartContainer}>
         <Text style={styles.cartTitle}>Cart</Text>
         {cartItems.length > 0 ? (
@@ -94,10 +126,16 @@ const Popularjobs = () => {
             keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
               <View style={styles.cartItem}>
-                <Text style={styles.cartItemName}>{item.name}</Text>
-                <Text style={styles.cartItemQuantity}>Quantity: {item.quantity}</Text>
-                <Text style={styles.cartItemPrice}>${item.price}</Text>
-              </View>
+              <Text style={styles.cartItemName}>{item.name}</Text>
+              <Text style={styles.cartItemQuantity}>Q: {item.quantity}</Text>
+              <Text style={styles.cartItemPrice}>${item.price}</Text>
+          <TouchableOpacity
+            style={styles.removeFromCartButton}
+            onPress={() => handleRemoveFromCart(item)}
+          >
+        <Text style={styles.removeFromCartButtonText}>Remove</Text>
+      </TouchableOpacity>
+    </View>
             )}
             
           />
@@ -105,6 +143,8 @@ const Popularjobs = () => {
           <Text style={styles.cartTitle}>Your cart is empty</Text>
         )}
       </View>
+    </View>
+    </View>
     </View>
   );
 };

@@ -31,12 +31,12 @@ const Welcome = () => {
       <View style={styles.searchContainer}>
         <View style={styles.searchWrapper}>
         <TextInput
-  style={styles.searchInput}
-  value={searchValue}
-  onChangeText={text => setSearchValue(text)}
-  placeholder="Looking for something specific?"
-  placeholderTextColor="grey"
-/>
+          style={styles.searchInput}
+          value={searchValue}
+          onChangeText={text => setSearchValue(text)}
+          placeholder="Looking for something specific?"
+          placeholderTextColor="grey"
+          />
 
         </View>
 

@@ -6,36 +6,9 @@ import { FONT, SIZES, COLORS } from "../../../constants";
 
 export const BagelMenu = () => {
 
-  const renderMenuItem = ({ item, index }) => {
-    return (
-      <View style={styles.menuItem}>
-        <Image style={styles.menuItemImage} source={{ uri: item.image }} />
-        <View style={styles.menuItemDetails}>
-          <Text style={styles.menuItemName}>{item.name}</Text>
-          <Text style={styles.menuItemDescription}>{item.description}</Text>
-          <Text style={styles.menuItemPrice}>{item.price}</Text>
-          <TouchableOpacity style={styles.addToCartBtn}>
-            <Text style={styles.addToCartText}>Add to Cart</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    );
-  };
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.headerTitle}>Menu</Text>
-      <Carousel
-        data={allDayMenu}
-        renderItem={renderMenuItem}
-        sliderWidth={Dimensions.get('window').width * 0.7}//Does not change distance of slider items
-        itemWidth={Dimensions.get('window').width * 0.7}
-        activeSlideAlignment="center"
-        carouselContainerStyle={styles.carouselContainer}
-        contentContainerStyle={styles.carouselContent}
-      />
-    </View>
-  );
+
+  
 };
 
 export const styles = StyleSheet.create({
@@ -123,6 +96,50 @@ export const styles = StyleSheet.create({
     fontSize: SIZES.body3,
     fontFamily: FONT.medium,
     textAlign: 'center',
+  },
+  cartContainer: {
+    backgroundColor: COLORS.white,
+    padding: SIZES.padding,
+    marginTop: SIZES.padding,
+    borderRadius: SIZES.radius,
+    shadowColor: COLORS.black,
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 1,
+  },
+  cartItem: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 10,
+    marginBottom: 10,
+    backgroundColor: "#f2f2f2",
+    borderRadius: 5,
+  },
+  cartTitle:{
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  cartItemName: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  cartItemQuantity: {
+    fontSize: 14,
+    color: "#777",
+  },
+  cartItemPrice: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  cartWrapper: { //Does not work
+    position: 'fixed',
+    bottom: 0,
+    width: '100%',
   },
 });
 

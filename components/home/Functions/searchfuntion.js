@@ -2,7 +2,9 @@
 import { allDayMenu } from '../Menu/menuData';
 
 //Search Function
-//Explain Big O and how functions work Below
+
+
+//The search function does not work
 
 
 function customSearch(searchTerm) {
