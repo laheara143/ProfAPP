@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     height: "100%",
     paddingHorizontal: SIZES.medium,
     backgroundColor: COLORS.whiteSmoke,
-    borderRadius: SIZES.xxLarge // You can adjust the value of radius to your preference
+    borderRadius: SIZES.xxLarge
   },  
   searchBtn: {
     width: 50,

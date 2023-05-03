@@ -1,8 +1,5 @@
 
 
-
-//Add in images of rest of menu
-
 export const menuData = {
   allDayMenu: [
     {

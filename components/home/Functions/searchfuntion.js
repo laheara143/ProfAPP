@@ -1,9 +1,6 @@
 
 import { allDayMenu } from '../Menu/menuData';
 
-//Search Function
-
-
 //The search function does not work
 
 

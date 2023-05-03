@@ -101,7 +101,6 @@ const handleRemoveFromCart = (item) => {
   
       <View style={styles.cardsContainer}>
         <Carousel
-          //Add if statement so if one of the filters is pressed this will change data into that food type
           data={sortedItems}
           renderItem={renderItem}
           sliderWidth={Dimensions.get('window').width}
