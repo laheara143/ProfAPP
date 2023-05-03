@@ -46,5 +46,5 @@ https://youtu.be/gVu3BKWtfIg
 
 ChatGPT helped a lot with fixing confusions with errors and debugging
 
-![IMG-5428](https://user-images.githubusercontent.com/77558582/235992260-9debcf2f-f81b-49f8-a23e-f6269df0abdb.PNG)
+![image](https://user-images.githubusercontent.com/77558582/235992734-2e1a3d44-53c0-43c6-b90a-7659e28de131.png)
 
