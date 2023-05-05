@@ -7,6 +7,7 @@ import {
   Text,
   ImageBackground,
   StyleSheet,
+  Dimensions,
 } from "react-native";
 import foodbag from '../assets/foodbag.png'
 import { Stack, useRouter } from "expo-router";
