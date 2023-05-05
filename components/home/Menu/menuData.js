@@ -184,14 +184,12 @@ export const menuData = {
           name: "Tub Bacon Scallion Cream Cheese",
           description: "Lipsum Dorem",
           price: 6.5,
-          // image: require('../../../assets/siracha.png')//find picture
         },
         {
           id: 2,
           name: "Tub Double Olive Cream Cheese",
           description: "Lipsum Dorem",
           price: 6.5,
-          // image: require('../../../assets/siracha.png')//find picture
         },
       ],
     },
