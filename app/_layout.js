@@ -13,8 +13,6 @@ const Layout = () => {
     })
 
 
-    //If fonts are not loaded it hides the homepage
-    //Ensures fonts are loaded
     const onLayoutRootView = useCallback(async() => {
         if(fontsLoaded){
             await SplashScreen.hideAsync();

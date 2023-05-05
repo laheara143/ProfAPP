@@ -1,24 +1,16 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image, FlatList, StyleSheet } from 'react-native';
-import { useRouter } from 'expo-router';
+import { View, Text, TextInput, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
 import Menu, { menuData } from '../Menu/Menu';
-import { COLORS, icons, SIZES, FONT } from '../../../constants';
+import { COLORS, SIZES, FONT } from '../../../constants';
 import styles from './welcome.style';
 import { foodTypes } from '../Menu/menuData';
 
 
 const Welcome = () => {
-  const router = useRouter();
   const [activeFoodType, setActiveFoodType] = useState('Bagels');
   const [searchValue, setSearchValue] = useState('');
   const [filteredData, setFilteredData] = useState(menuData);
 
-  const handleSearch = () => {
-    const newData = menuData.filter(item =>
-      item.name.toLowerCase().includes(searchValue.toLowerCase())
-    );
-    setFilteredData(newData);
-  };
 
   return (
     <View>

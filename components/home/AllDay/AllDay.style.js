@@ -1,15 +1,6 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
-import Carousel from 'react-native-snap-carousel';
-import { allDayMenu } from '../Menu/menuData';
+import { StyleSheet, } from 'react-native';
 import { FONT, SIZES, COLORS } from "../../../constants";
 
-export const BagelMenu = () => {
-
-
-
-  
-};
 
 export const styles = StyleSheet.create({
   container: {
@@ -121,7 +112,7 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
   },
   cartTitle:{
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: "bold",
   },
   cartItemName: {

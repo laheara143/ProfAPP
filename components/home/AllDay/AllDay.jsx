@@ -1,19 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, FlatList, ActivityIndicator, Image, Dimensions  } from 'react-native';
-import { COLORS, SIZES } from '../../../constants';
 import styles from './AllDay.style';
 import { allDayMenu } from '../Menu/menuData';
 import Carousel from 'react-native-snap-carousel';
 
-const Nearbyjobs = () => {
+const AllDay = () => {
   const [cartItems, setCartItems] = useState([]);
   const [sortedItems, setSortedItems] = useState([...allDayMenu]);
   const [sortOrder, setSortOrder] = useState('asc');
-
-
-  const handleCardPress = (item) => {
-
-  };
 
 
   //Big O (O(n))
@@ -70,7 +64,7 @@ const handleRemoveFromCart = (item) => {
 
   const renderItem = ({ item }) => {
     return (
-      <TouchableOpacity onPress={() => handleCardPress(item)} activeOpacity={0.6}>
+      <TouchableOpacity activeOpacity={0.6}>
         <View style={styles.menuItem}>
           <View style={styles.menuItemDetails}>
             <Text style={styles.menuItemName}>{item.name}</Text>
@@ -142,4 +136,4 @@ const handleRemoveFromCart = (item) => {
   
 };
 
-export default Nearbyjobs;
+export default AllDay;
